@@ -1,4 +1,4 @@
-package main
+package dict
 
 import (
 	"errors"
@@ -61,7 +61,6 @@ func (d *Dict) Load() error {
 		return err
 	}
 	err = yaml.Unmarshal(yamlFile, &d.wordList)
-	fmt.Printf("%v", d.wordList)
 	if err != nil {
 		log.Fatalf("Unmarshal failed: %#v", err)
 		return err
@@ -83,8 +82,4 @@ func (d *Dict) Query(englishName string) (string, error) {
 		}
 	}
 	return "", errors.New("Word not found")
-}
-
-func main() {
-	// do nothing
 }
