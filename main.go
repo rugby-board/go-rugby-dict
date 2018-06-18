@@ -84,3 +84,7 @@ func (d *Dict) Query(englishName string) (string, error) {
 	}
 	return "", errors.New("Word not found")
 }
+
+func main() {
+	// do nothing
+}
