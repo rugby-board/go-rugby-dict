@@ -26,6 +26,8 @@ type Word struct {
 const (
 	// RepoPath Relative path of this repo
 	RepoPath = "github.com/rugby-board/go-rugby-dict"
+	// DefaultDictPath of dict.yaml
+	DefaultDictPath = "dict.yaml"
 )
 
 // LoadEnvConfPath ...
@@ -43,6 +45,15 @@ func loadRealPath(yamlPath string) (string, error) {
 func NewDict(dictPath string) *Dict {
 	return &Dict{
 		dictPath: dictPath,
+		size:     0,
+		wordList: make([]Word, 0, 1024),
+	}
+}
+
+// NewDefaultDict returns a default Dict
+func NewDefaultDict() *Dict {
+	return &Dict{
+		dictPath: DefaultDictPath,
 		size:     0,
 		wordList: make([]Word, 0, 1024),
 	}

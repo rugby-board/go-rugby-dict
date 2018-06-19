@@ -19,7 +19,7 @@ import (
     dict "github.com/rugby-board/go-rugby-dict"
 )
 
-d := dict.NewDict("dict.yaml")
+d := dict.NewDefaultDict()
 err := d.Load()
 if err != nil {
     fmt.Println("load error")

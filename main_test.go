@@ -4,8 +4,19 @@ import (
 	"testing"
 )
 
-func TestLoad(t *testing.T) {
+func TestDictLoad(t *testing.T) {
 	d := NewDict("dict.yaml")
+	err := d.Load()
+	if err != nil {
+		t.Error("Load dict failed")
+	}
+	if d.Size() <= 0 {
+		t.Error("Dict is empty")
+	}
+}
+
+func TestDefaultDictLoad(t *testing.T) {
+	d := NewDefaultDict()
 	err := d.Load()
 	if err != nil {
 		t.Error("Load dict failed")
