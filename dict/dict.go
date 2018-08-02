@@ -24,10 +24,8 @@ type Word struct {
 }
 
 const (
-	// RepoPath Relative path of this repo
-	RepoPath = "github.com/rugby-board/go-rugby-dict"
 	// DefaultDictPath of dict.yaml
-	DefaultDictPath = "dict.yaml"
+	DefaultDictPath = "github.com/rugby-board/rugby-dict-data/dict.yml"
 )
 
 // LoadEnvConfPath ...
@@ -37,7 +35,7 @@ func loadRealPath(yamlPath string) (string, error) {
 		return "", errors.New("GOPATH is not set")
 	}
 
-	path := fmt.Sprintf("%s/src/%s/%s", gopath, RepoPath, yamlPath)
+	path := fmt.Sprintf("%s/src/%s", gopath, yamlPath)
 	return path, nil
 }
 

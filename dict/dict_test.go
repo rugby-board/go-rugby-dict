@@ -5,7 +5,7 @@ import (
 )
 
 func TestDictLoad(t *testing.T) {
-	d := NewDict("dict.yaml")
+	d := NewDict(DefaultDictPath)
 	err := d.Load()
 	if err != nil {
 		t.Error("Load dict failed")
@@ -27,7 +27,7 @@ func TestDefaultDictLoad(t *testing.T) {
 }
 
 func TestQueries(t *testing.T) {
-	d := NewDict("dict.yaml")
+	d := NewDict(DefaultDictPath)
 	err := d.Load()
 	if err != nil {
 		t.Error("Load dict failed")
